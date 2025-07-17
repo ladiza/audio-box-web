@@ -8,19 +8,29 @@
     <div class="container">
         <h1>🎵 Vinyl Audio Box</h1>
         
-        <div class="status-grid">
-            <div class="service-card">
-                <h3>Spotify Connect</h3>
-                <div id="spotify-status" class="status">Loading...</div>
+        <div class="control-panel">
+            <div class="source-control">
+                <label for="source-select">Audio Source:</label>
+                <select id="source-select" onchange="changeSource()">
+                    <option value="none">None</option>
+                    <option value="spotify">Spotify Connect</option>
+                    <option value="airplay">AirPlay</option>
+                </select>
+                
+                <div class="status-indicator">
+                    <span id="status-dot" class="status-dot inactive">●</span>
+                    <span id="status-text">No service active</span>
+                </div>
+                
+                <button id="restart-btn" onclick="restartCurrent()" disabled>
+                    Restart Service
+                </button>
             </div>
             
-            <div class="service-card">
-                <h3>AirPlay</h3>
-                <div id="airplay-status" class="status">Loading...</div>
+            <div id="service-info" class="service-info">
+                Select a service to begin streaming audio
             </div>
         </div>
-        
-        <button onclick="refreshStatus()">Refresh Status</button>
     </div>
 
     <script src="{{ url_for('static', filename='app.js') }}"></script>
