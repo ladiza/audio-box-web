@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Vinyl Audio Box</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>🎵 Vinyl Audio Box</h1>
+        
+        <div class="status-grid">
+            <div class="service-card">
+                <h3>Spotify Connect</h3>
+                <div id="spotify-status" class="status">Loading...</div>
+            </div>
+            
+            <div class="service-card">
+                <h3>AirPlay</h3>
+                <div id="airplay-status" class="status">Loading...</div>
+            </div>
+        </div>
+        
+        <button onclick="refreshStatus()">Refresh Status</button>
+    </div>
+
+    <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
